@@ -7,7 +7,7 @@
 
 ## Descripción
 
-MyIDSProject es un **Sistema de Detección de Intrusiones (IDS)** en Python que monitoriza tráfico TCP en tiempo real y envía alertas a un canal de Discord mediante webhooks. Detecta:
+IDS es un **Sistema de Detección de Intrusiones (IDS)** en Python que monitoriza tráfico TCP en tiempo real y envía alertas a un canal de Discord mediante webhooks. Detecta:
 
 - **SYN Flood** (inundación de paquetes SYN)  
 - **Escaneo de puertos** (port scanning)  
