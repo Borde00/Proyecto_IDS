@@ -14,6 +14,10 @@ IDS es un **Sistema de Detección de Intrusiones (IDS)** en Python que monitoriz
 - **Intentos de intrusión SSH**  
 - **Ataques HTTP** (por ejemplo Slowloris)
 
+
+---
+
+⚠️ **Aviso legal**: Este código es solo para fines educativos y de investigación. Su uso contra sistemas sin autorización es ilegal y puede acarrear responsabilidades.
 ---
 
 > **Este proyecto es una base en constante evolución**  
