@@ -18,12 +18,14 @@ IDS es un **Sistema de Detección de Intrusiones (IDS)** en Python que monitoriz
 ---
 
 ⚠️ **Aviso legal**: Este código es solo para fines educativos y de investigación. Su uso contra sistemas sin autorización es ilegal y puede acarrear responsabilidades.
+
 ---
 
 > **Este proyecto es una base en constante evolución**  
 > Estoy iterando y ampliando funcionalidades con regularidad.  
 > 
 > Si tienes ideas, sugerencias o quieres usar este código en tus propios proyectos, ¡escríbeme!
+>
 > 
 ## Estructura del proyecto
 
