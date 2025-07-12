@@ -1,4 +1,4 @@
-# MyIDSProject
+# Proyecto_IDS
 
 **Autor:** Borde00
 **Fecha:** 2025-07-12
