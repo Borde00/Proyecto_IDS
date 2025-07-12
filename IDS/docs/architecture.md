@@ -37,16 +37,16 @@ Este documento explica el diseño y flujo de datos de **Proyecto_IDS**, un IDS q
 ```text
 ┌─────────────────────────┐
 │  Inicio del script      │
-│  - Carga configuración  │
-│  - Inicializa estructuras│
-│  - Lanza hilo de limpieza│
+│ - Carga configuración   │
+│ - Inicializa estructuras│
+│ - Lanza hilo de limpieza│
 └───────┬─────────────────┘
         │
         ▼
 ┌─────────────────────────┐
 │  Sniffer Scapy          │
-│  - Captura paquete TCP  │
-│  - Filtra por flags/puertos │
+│ - Captura paquete TCP   │
+│ - Filtra por puertos    │
 └───────┬─────────────────┘
         │
         ▼
@@ -63,6 +63,6 @@ Este documento explica el diseño y flujo de datos de **Proyecto_IDS**, un IDS q
                     │
                     ▼
         ┌─────────────────────────┐
-        │  Enviar notificación   │
-        │  (discord-webhook)     │
+        │  Enviar notificación    │
+        │  (discord-webhook)      │
         └─────────────────────────┘
