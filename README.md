@@ -36,6 +36,6 @@ IDS/
 ├── docs/
 │   └── architecture.md      # Diagrama y descripción de la arquitectura
 ├── .gitignore               # Archivos y carpetas ignorados por Git
-├── README.md                # Este archivo
+├── README.md                
 ├── LICENSE                  # Licencia MIT
 └── requirements.txt         # Dependencias Python
