@@ -139,19 +139,6 @@ A continuación se muestra una demostración del sistema en funcionamiento:
 
 > 🎥 **[Ver video de demostración](https://drive.google.com/file/d/1CfmtVcMhw_VbFEgau82pbbW0utSlD61t/view?usp=sharing)**
 
-### Escenarios mostrados en el video:
-
-1. **Inicio del IDS** — Se muestra la activación del sniffer y la detección de la IP local.
-2. **Simulación de SYN Flood** — Uso de `hping3` para generar 50 paquetes SYN hacia el servidor.
-3. **Detección de Port Scan** — Escaneo con `nmap` sobre los puertos abiertos.
-4. **Ataque HTTP** — Múltiples peticiones concurrentes con `ab` (Apache Bench).
-5. **Alertas en Discord** — Visualización de los embeds recibidos en el canal de Discord con:
-   - Tipo de ataque
-   - IP atacante
-   - Puerto objetivo
-   - Timestamp
-   - Descripción del ataque
-
 ### Capturas del panel de Discord
 
 ```
