@@ -1,4 +1,4 @@
-# 🛡️ Proyecto_IDS — Sistema de Detección de Intrusiones
+# Proyecto_IDS — Sistema de Detección de Intrusiones
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.md)
@@ -9,7 +9,7 @@ IDS ligero en Python que detecta ataques en tráfico TCP y envía alertas en tie
 
 ---
 
-## ✨ Características
+## Características
 
 - **Captura en tiempo real** de paquetes TCP con Scapy.
 - **Detección automática** de:
@@ -24,7 +24,7 @@ IDS ligero en Python que detecta ataques en tráfico TCP y envía alertas en tie
 
 ---
 
-## 📦 Requisitos
+## Requisitos
 
 - Python 3.8 o superior
 - Permisos de root / administrador (para captura en modo promiscuo)
@@ -38,7 +38,7 @@ pip install -r requirements.txt
 
 ---
 
-## 🚀 Instalación
+## Instalación
 
 1. Clona o descarga el repositorio:
 ```bash
@@ -55,7 +55,7 @@ pip install -r requirements.txt
 
 ---
 
-## ⚙️ Configuración
+## Configuración
 
 Edita el archivo `IDS.py` y modifica la siguiente variable con tu propia URL de Webhook de Discord:
 
@@ -74,7 +74,7 @@ TIEMPO_BLOQUEO = 300          # Segundos entre alertas repetidas por IP
 
 ---
 
-## ▶️ Uso
+## Uso
 
 Ejecuta el script con permisos de administrador:
 
@@ -91,7 +91,7 @@ Cuando se detecte un ataque, se enviará automáticamente una alerta al canal de
 
 ---
 
-## 🏗️ Arquitectura
+## Arquitectura
 
 El sistema se compone de 4 módulos principales:
 
@@ -108,7 +108,7 @@ Un hilo daemon limpia registros expirados cada 60 segundos.
 
 ---
 
-## 🎯 Tipos de ataque detectados
+## Tipos de ataque detectados
 
 | Tipo | Descripción | Umbral |
 |------|-------------|--------|
@@ -119,11 +119,11 @@ Un hilo daemon limpia registros expirados cada 60 segundos.
 
 ---
 
-## 🎬 Video de demostración
+## Video de demostración
 
 A continuación se muestra una demostración del sistema en funcionamiento:
 
-> 🎥 **[Ver video de demostración](https://drive.google.com/file/d/1CfmtVcMhw_VbFEgau82pbbW0utSlD61t/view?usp=sharing)**
+> **[Ver video de demostración](https://drive.google.com/file/d/1CfmtVcMhw_VbFEgau82pbbW0utSlD61t/view?usp=sharing)**
 
 ### Capturas del panel de Discord
 
