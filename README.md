@@ -9,20 +9,6 @@ IDS ligero en Python que detecta ataques en tráfico TCP y envía alertas en tie
 
 ---
 
-## 📋 Tabla de contenidos
-
-- [Características](#características)
-- [Requisitos](#requisitos)
-- [Instalación](#instalación)
-- [Configuración](#configuración)
-- [Uso](#uso)
-- [Arquitectura](#arquitectura)
-- [Tipos de ataque detectados](#tipos-de-ataque-detectados)
-- [Video de demostración](#video-de-demostración)
-- [Licencia](#licencia)
-
----
-
 ## ✨ Características
 
 - **Captura en tiempo real** de paquetes TCP con Scapy.
