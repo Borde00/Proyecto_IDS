@@ -1,41 +1,37 @@
-# Proyecto_IDS
 
-**Autor:** Borde00
-**Fecha:** 2025-07-12
+Cuando se detecta un ataque, se imprime en consola y se envía automáticamente un embed a Discord con:
 
----
-
-## Descripción
-
-IDS es un **Sistema de Detección de Intrusiones (IDS)** en Python que monitoriza tráfico TCP en tiempo real y envía alertas a un canal de Discord mediante webhooks. Detecta:
-
-- **SYN Flood** (inundación de paquetes SYN)  
-- **Escaneo de puertos** (port scanning)  
-- **Intentos de intrusión SSH**  
-- **Ataques HTTP** (por ejemplo Slowloris)
-
+- 🚨 Tipo de ataque y color identificativo.
+- IP del atacante y servidor IDS.
+- Puerto objetivo y timestamp.
 
 ---
 
-⚠️ **Aviso legal**: Este código es solo para fines educativos y de investigación. Su uso contra sistemas sin autorización es ilegal y puede acarrear responsabilidades.
+## Demostración
+
+> [!NOTE]
+> El vídeo debe grabarse en un **entorno de laboratorio controlado** (máquinas virtuales, red NAT aislada).
+
+[▶ Ver demostración](https://drive.google.com/file/d/1CfmtVcMhw_VbFEgau82pbbW0utSlD61t/view?usp=sharing)
 
 ---
 
-> **Este proyecto es una base en constante evolución**  
-> Estoy iterando y ampliando funcionalidades con regularidad.  
-> 
-> Si tienes ideas, sugerencias o quieres usar este código en tus propios proyectos, ¡escríbeme!
->
-> 
-## Estructura del proyecto
+## Aviso ético y legal
 
-```text
-IDS/
-├── src/
-│   └── IDS.py       # Script principal del IDS
-├── docs/
-│   └── architecture.md      # Diagrama y descripción de la arquitectura
-├── .gitignore               # Archivos y carpetas ignorados por Git
-├── README.md                
-├── LICENSE                  # Licencia MIT
-└── requirements.txt         # Dependencias Python
+Este repositorio se comparte únicamente con fines educativos y de investigación en ciberseguridad.
+
+El autor no promueve el uso indebido de este software ni su despliegue fuera de entornos controlados y autorizados. El uso no autorizado contra infraestructuras ajenas puede constituir un delito tipificado en el artículo 197 bis y siguientes del Código Penal español, así como en legislaciones equivalentes de otros países.
+
+---
+
+## Licencia
+
+Distribuido bajo licencia **MIT**. Consulta el archivo [`LICENSE`](LICENSE) para más información.
+
+---
+
+## Autor
+
+**Borde00**
+
+Proyecto en evolución, creado como práctica de aprendizaje, documentación técnica y experimentación en entornos de laboratorio de ciberseguridad.
