@@ -1,37 +1,173 @@
+# 🛡️ Proyecto_IDS — Sistema de Detección de Intrusiones
 
-Cuando se detecta un ataque, se imprime en consola y se envía automáticamente un embed a Discord con:
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.md)
+[![Scapy](https://img.shields.io/badge/Scapy-2.5+-orange.svg)](https://scapy.net/)
+[![Discord](https://img.shields.io/badge/Discord-Webhook-5865F2.svg)](https://discord.com/)
 
-- 🚨 Tipo de ataque y color identificativo.
-- IP del atacante y servidor IDS.
-- Puerto objetivo y timestamp.
-
----
-
-## Demostración
-
-> [!NOTE]
-> El vídeo debe grabarse en un **entorno de laboratorio controlado** (máquinas virtuales, red NAT aislada).
-
-[▶ Ver demostración](https://drive.google.com/file/d/1CfmtVcMhw_VbFEgau82pbbW0utSlD61t/view?usp=sharing)
+IDS ligero en Python que detecta ataques en tráfico TCP y envía alertas en tiempo real a Discord mediante Webhooks.
 
 ---
 
-## Aviso ético y legal
+## 📋 Tabla de contenidos
 
-Este repositorio se comparte únicamente con fines educativos y de investigación en ciberseguridad.
-
-El autor no promueve el uso indebido de este software ni su despliegue fuera de entornos controlados y autorizados. El uso no autorizado contra infraestructuras ajenas puede constituir un delito tipificado en el artículo 197 bis y siguientes del Código Penal español, así como en legislaciones equivalentes de otros países.
+- [Características](#características)
+- [Requisitos](#requisitos)
+- [Instalación](#instalación)
+- [Configuración](#configuración)
+- [Uso](#uso)
+- [Arquitectura](#arquitectura)
+- [Tipos de ataque detectados](#tipos-de-ataque-detectados)
+- [Video de demostración](#video-de-demostración)
+- [Licencia](#licencia)
 
 ---
 
-## Licencia
+## ✨ Características
 
-Distribuido bajo licencia **MIT**. Consulta el archivo [`LICENSE`](LICENSE) para más información.
+- **Captura en tiempo real** de paquetes TCP con Scapy.
+- **Detección automática** de:
+  - SYN Flood
+  - Port Scan
+  - Ataques HTTP (múltiples conexiones, posible Slowloris)
+  - Intentos de intrusión SSH (fuerza bruta)
+- **Notificaciones instantáneas** a Discord con embeds enriquecidos.
+- **Bloqueo temporal por IP** para evitar spam de alertas.
+- **Limpieza periódica** de registros en segundo plano.
+- **Identificación automática** de la IP local del servidor.
 
 ---
 
-## Autor
+## 📦 Requisitos
 
-**Borde00**
+- Python 3.8 o superior
+- Permisos de root / administrador (para captura en modo promiscuo)
+- Dependencias de Python:
 
-Proyecto en evolución, creado como práctica de aprendizaje, documentación técnica y experimentación en entornos de laboratorio de ciberseguridad.
+```bash
+pip install -r requirements.txt
+```
+
+> **Nota:** `scapy` requiere permisos elevados para capturar paquetes en la interfaz de red.
+
+---
+
+## 🚀 Instalación
+
+1. Clona o descarga el repositorio:
+```bash
+git clone https://github.com/Borde00/Proyecto_IDS.git
+cd Proyecto_IDS
+```
+
+2. Instala las dependencias:
+```bash
+pip install -r requirements.txt
+```
+
+3. Configura tu Webhook de Discord (ver siguiente sección).
+
+---
+
+## ⚙️ Configuración
+
+Edita el archivo `IDS.py` y modifica la siguiente variable con tu propia URL de Webhook de Discord:
+
+```python
+WEBHOOK_URL = "https://discord.com/api/webhooks/TU_WEBHOOK_AQUI"
+```
+
+Opcionalmente, puedes ajustar los umbrales de detección:
+
+```python
+THRESHOLD_SYN_FLOOD = 30      # Paquetes SYN
+THRESHOLD_PORT_SCAN = 10      # Puertos distintos
+THRESHOLD_HTTP_CONN = 20      # Conexiones en 10 segundos
+TIEMPO_BLOQUEO = 300          # Segundos entre alertas repetidas por IP
+```
+
+---
+
+## ▶️ Uso
+
+Ejecuta el script con permisos de administrador:
+
+```bash
+sudo python3 IDS.py
+```
+
+Verás en consola:
+```
+[+] IDS activado en 192.168.1.100 (2026-06-30 13:38:00) - Escuchando tráfico TCP...
+```
+
+Cuando se detecte un ataque, se enviará automáticamente una alerta al canal de Discord configurado.
+
+---
+
+## 🏗️ Arquitectura
+
+El sistema se compone de 4 módulos principales:
+
+| Módulo | Descripción |
+|--------|-------------|
+| **Captura** | Scapy en modo promiscuo filtra paquetes TCP (puertos 80 y 22). |
+| **Análisis** | Contadores por IP: SYN, puertos distintos, conexiones HTTP, intentos SSH. |
+| **Alertas** | Cuando un contador supera su umbral, genera alerta y marca la IP como "alertada". |
+| **Notificaciones** | Envía embeds a Discord vía `discord-webhook`. |
+
+Un hilo daemon limpia registros expirados cada 60 segundos.
+
+> Para más detalles, consulta [`architecture.md`](architecture.md).
+
+---
+
+## 🎯 Tipos de ataque detectados
+
+| Tipo | Descripción | Umbral |
+|------|-------------|--------|
+| **SYN_FLOOD** | Saturación con paquetes SYN | 30 SYN |
+| **PORT_SCAN** | Escaneo de múltiples puertos | 10 puertos distintos |
+| **HTTP** | Múltiples conexiones HTTP en 10s | 20 conexiones |
+| **SSH** | Intento de intrusión en puerto 22 | 1 intento |
+
+---
+
+## 🎬 Video de demostración
+
+A continuación se muestra una demostración del sistema en funcionamiento:
+
+> 🎥 **[Ver video de demostración](https://drive.google.com/file/d/1CfmtVcMhw_VbFEgau82pbbW0utSlD61t/view?usp=sharing)**
+
+### Escenarios mostrados en el video:
+
+1. **Inicio del IDS** — Se muestra la activación del sniffer y la detección de la IP local.
+2. **Simulación de SYN Flood** — Uso de `hping3` para generar 50 paquetes SYN hacia el servidor.
+3. **Detección de Port Scan** — Escaneo con `nmap` sobre los puertos abiertos.
+4. **Ataque HTTP** — Múltiples peticiones concurrentes con `ab` (Apache Bench).
+5. **Alertas en Discord** — Visualización de los embeds recibidos en el canal de Discord con:
+   - Tipo de ataque
+   - IP atacante
+   - Puerto objetivo
+   - Timestamp
+   - Descripción del ataque
+
+### Capturas del panel de Discord
+
+```
+┌─────────────────────────────────────────┐
+│  🚨 [SYN_FLOOD] Ataque Detectado        │
+│  Servidor IDS: 192.168.1.100            │
+│  IP Atacante: 10.0.0.5                  │
+│  Puerto objetivo: 80                    │
+│  Fecha/Hora: 2026-06-30 13:45:22       │
+└─────────────────────────────────────────┘
+```
+
+---
+
+## 📄 Licencia
+
+Este proyecto está bajo la licencia MIT. Consulta el archivo [`LICENSE.md`](LICENSE.md) para más detalles.
+
+---
