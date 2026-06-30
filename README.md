@@ -139,7 +139,7 @@ A continuación se muestra una demostración del sistema en funcionamiento:
 
 ---
 
-## 📄 Licencia
+## Licencia
 
 Este proyecto está bajo la licencia MIT. Consulta el archivo [`LICENSE.md`](LICENSE.md) para más detalles.
 
